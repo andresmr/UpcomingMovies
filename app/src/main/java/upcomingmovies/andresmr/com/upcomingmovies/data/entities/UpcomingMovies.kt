@@ -1,4 +1,4 @@
 package upcomingmovies.andresmr.com.upcomingmovies.data.entities
 
-data class UpcomingMovies(val page: Int, val results: List<Result>, val dates: Dates,
+class UpcomingMovies(val page: Int, val results: List<Result>, val dates: Dates,
                           val totalPages: Int, val totalResults: Int)
