@@ -1,9 +1,12 @@
-package upcomingmovies.andresmr.com.upcomingmovies
+package upcomingmovies.andresmr.com.upcomingmovies.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import upcomingmovies.andresmr.com.upcomingmovies.R
 import upcomingmovies.andresmr.com.upcomingmovies.data.repository.network.controllers.UpcomingMoviesController
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    //    upcoming_movie_list.layoutManager
+        upcoming_movie_list.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onResume() {
@@ -21,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         val movieController = UpcomingMoviesController()
         doAsync {
             val movies = movieController.getUpcomingMovies()
+            uiThread {
+                //call here
+            }
         }
     }
 }
