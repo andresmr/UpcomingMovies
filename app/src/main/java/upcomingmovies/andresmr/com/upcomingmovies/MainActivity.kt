@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val movieController = UpcomingMoviesController()
         doAsync {
-            val movies = movieController.getUpcomingMovies().body()
+            val movies = movieController.getUpcomingMovies()
         }
     }
 }
