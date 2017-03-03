@@ -1,5 +1,5 @@
 package upcomingmovies.andresmr.com.upcomingmovies.data.repository
 
-class UpcomingMoviesRepository(){
-
+interface Factory<T> {
+    fun get(): T
 }
