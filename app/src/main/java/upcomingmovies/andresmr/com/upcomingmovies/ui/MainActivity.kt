@@ -13,7 +13,7 @@ import upcomingmovies.andresmr.com.upcomingmovies.R
 import upcomingmovies.andresmr.com.upcomingmovies.data.entities.Result
 import upcomingmovies.andresmr.com.upcomingmovies.data.repository.network.controllers.UpcomingMoviesController
 
-class MainActivity : AppCompatActivity(), AnkoLogger, ActivityExtensions{
+class MainActivity : AppCompatActivity(), AnkoLogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
