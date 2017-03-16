@@ -1,19 +1,15 @@
 package upcomingmovies.andresmr.com.upcomingmovies.ui
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import upcomingmovies.andresmr.com.upcomingmovies.R
-import upcomingmovies.andresmr.com.upcomingmovies.data.entities.Result
 import upcomingmovies.andresmr.com.upcomingmovies.data.repository.network.controllers.UpcomingMoviesController
 
-class MainActivity : AppCompatActivity(), AnkoLogger {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +28,5 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
                 navigate<MovieDetailActivity>(movies[0])
             }
         }
-    }
-
-    inline fun <reified T : Activity> Activity.navigate(movie: Result? = null) {
-        val intent = Intent(this, T::class.java)
-        intent.putExtra("movie", movie)
-        startActivity(intent)
     }
 }
