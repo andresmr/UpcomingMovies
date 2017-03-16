@@ -22,9 +22,9 @@ class UpcomingMoviesListAdapter(val moviesList:List<Result>, val listener: (Resu
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: Result, listener: (Result) -> Unit) = with(itemView) {
-            tvName.text = item.title
-            setOnClickListener { listener(item) }
+        fun bind(movie: Result, listener: (Result) -> Unit) = with(itemView) {
+            tvName.text = movie.title
+            setOnClickListener { listener(movie) }
         }
     }
 }
