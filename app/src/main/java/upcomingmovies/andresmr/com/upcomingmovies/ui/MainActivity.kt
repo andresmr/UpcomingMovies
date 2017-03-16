@@ -7,14 +7,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import upcomingmovies.andresmr.com.upcomingmovies.R
+import upcomingmovies.andresmr.com.upcomingmovies.data.entities.Result
 import upcomingmovies.andresmr.com.upcomingmovies.data.repository.network.controllers.UpcomingMoviesController
+import upcomingmovies.andresmr.com.upcomingmovies.ui.adapter.UpcomingMoviesListAdapter
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         upcoming_movie_list.layoutManager = LinearLayoutManager(this)
     }
 
@@ -25,8 +26,14 @@ class MainActivity : AppCompatActivity() {
         doAsync {
             val movies = movieController.getUpcomingMovies()
             uiThread {
-                navigate<MovieDetailActivity>(movies[0])
+                setMoviesList(movies)
             }
+        }
+    }
+
+    fun setMoviesList(movies:List<Result>){
+        upcoming_movie_list.adapter = UpcomingMoviesListAdapter(movies){
+            navigate<MovieDetailActivity>(it)
         }
     }
 }

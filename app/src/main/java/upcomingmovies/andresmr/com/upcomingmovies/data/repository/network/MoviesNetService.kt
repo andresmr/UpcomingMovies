@@ -20,5 +20,7 @@ class MoviesNetService{
                 .baseUrl(baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(MoviesApi::class.java)
+
     }
+
 }
