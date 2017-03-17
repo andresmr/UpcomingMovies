@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setMoviesList(movies:List<Result>){
         upcoming_movie_list.adapter = UpcomingMoviesListAdapter(movies){
-            navigate<MovieDetailActivity>(it)
+             navigate<MovieDetailActivity>(it)
         }
     }
 }
